@@ -54,8 +54,6 @@ WOLHandler::~WOLHandler() {
     }
 }
 
-/* 00:14:fd:14:57:48 */
-
 void WOLHandler::send(unsigned char *mac_addr) {
     unsigned char packet[] = {
         0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
