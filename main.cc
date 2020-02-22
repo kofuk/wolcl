@@ -95,7 +95,7 @@ static void register_mode(string config_path) {
 
         for (;;) {
             line = readline("Port[0-65535]: ");
-            if (is_port_number(line)) {
+            if (line != nullptr && is_port_number(line)) {
                 port = line;
 
                 break;

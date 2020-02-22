@@ -14,7 +14,8 @@ bool is_mac_address(string str) {
                 }
             } else {
                 if (!(('0' <= str[i] && str[i] <= '9') ||
-                      ('a' <= str[i] && str[i] <= 'f'))) {
+                      ('a' <= str[i] && str[i] <= 'f') ||
+                      ('A' <= str[i] && str[i] <= 'F'))) {
                     return false;
                 }
             }
@@ -53,6 +54,8 @@ unsigned char *to_mac_address(string mac_addr_str) {
             bit = mac_addr_str[i] - '0';
         } else if ('a' <= mac_addr_str[i] && mac_addr_str[i] <= 'f') {
             bit = 10 + mac_addr_str[i] - 'a';
+        } else if ('A' <= mac_addr_str[i] && mac_addr_str[i] <= 'F') {
+            bit = 10 + mac_addr_str[i] - 'A';
         } else {
             delete[] result;
 
