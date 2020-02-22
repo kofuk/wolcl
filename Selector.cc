@@ -71,10 +71,18 @@ vector<int> *Selector::run() {
                 result->push_back(pos);
 
                 write(1, "*\e[D", 4);
+                if (pos < entries.size() - 1) {
+                    write(1, "\e[B", 3);
+                    ++pos;
+                }
             } else {
                 result->erase(res);
 
                 write(1, " \e[D", 4);
+                if (pos < entries.size() - 1) {
+                    write(1, "\e[B", 3);
+                    ++pos;
+                }
             }
         } else if (c == '\e') {
             read(0, &c, 1);
